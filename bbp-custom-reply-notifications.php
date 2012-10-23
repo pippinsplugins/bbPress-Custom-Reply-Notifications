@@ -31,6 +31,10 @@ class PW_BBP_Reply_Notifications {
 		$reply_url     	= bbp_get_reply_url( $reply_id );
 		$reply_author	= bbp_get_reply_author_display_name( $reply_id );
 
+		$custom_message = get_option( '_bbp_reply_notice_body' );
+
+		$message = $custom_message ? $custom_message : $message;
+
 		$message = str_replace( '{author}', 	$reply_author, 	$message );
 		$message = str_replace( '{content}', 	$reply_content, $message );
 		$message = str_replace( '{url}', 		$reply_url, 	$message );
@@ -40,6 +44,10 @@ class PW_BBP_Reply_Notifications {
 	}
 
 	function reply_title( $title, $reply_id, $topic_id, $user_id ) {
+
+		$custom_title = get_option( '_bbp_reply_notice_title' );
+
+		$message = $custom_title ? $custom_title : $message;
 
 		$topic_title 	= strip_tags( bbp_get_topic_title( $topic_id ) );
 		$title 			= str_replace( '{title}', $topic_title, $title );
@@ -73,15 +81,15 @@ class PW_BBP_Reply_Notifications {
 
 		$default = '{author} wrote:
 
-	{content}
+{content}
 				
-	Post Link: {url}
+Post Link: {url}
 
-	-----------
+-----------
 
-	You are receiving this email because you subscribed to a forum topic.
+You are receiving this email because you subscribed to a forum topic.
 
-	Login and visit the topic to unsubscribe from these emails.';
+Login and visit the topic to unsubscribe from these emails.';
 
 
 		$message = bbp_get_form_option( '_bbp_reply_notice_body', $default );
