@@ -37,20 +37,20 @@ class PW_BBP_Reply_Notifications {
 
 		$message = str_replace( '{author}', 	$reply_author, 	$message );
 		$message = str_replace( '{content}', 	$reply_content, $message );
-		$message = str_replace( '{url}', 		$reply_url, 	$message );
+		$message = str_replace( '{url}', 	$reply_url, 	$message );
 
 
 		return $message;
 	}
 
-	function reply_title( $title, $reply_id, $topic_id, $user_id ) {
+	function reply_title( $title, $reply_id, $topic_id ) {
 
 		$custom_title = get_option( '_bbp_reply_notice_title' );
 
 		$message = $custom_title ? $custom_title : $message;
 
 		$topic_title 	= strip_tags( bbp_get_topic_title( $topic_id ) );
-		$title 			= str_replace( '{title}', $topic_title, $title );
+		$title 		= str_replace( '{title}', $topic_title, $title );
 
 		return $title;
 	}
