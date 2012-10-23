@@ -15,6 +15,8 @@ This simple extension for bbPress allows you to customize the notification email
 
 This is a simple extension for bbPress that allows you to customize the email that is sent out to topic subscribers when a new reply is posted to a topic.
 
+Once activated, you will have two new options in Settings > Forums that will let you configure the email and subject to your liking.
+
 == Installation ==
 
 1. Activate the plugin
