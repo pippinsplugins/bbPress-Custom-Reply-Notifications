@@ -3,7 +3,7 @@
 Plugin Name: bbPress Custom Reply Notifications
 Plugin URI: http://pippinsplugins.com/bbpress-custom-reply-notifications
 Description: A bbPress extension to customize the email sent to topic subscribers when a new reply is posted
-Version: 1.0
+Version: 1.0.1
 Author: Pippin Williamson
 Author URI: http://pippinsplugins.com
 Contributors: mordauk 
@@ -18,7 +18,7 @@ class PW_BBP_Reply_Notifications {
 		// let's get started
 
 		add_filter( 'bbp_subscription_mail_message', array( __CLASS__, 'reply_message' ), 10, 4 );
-		add_filter( 'bbp_subscription_mail_title', array( __CLASS__, 'reply_title' ), 10, 3 );
+		add_filter( 'bbp_subscription_mail_title', array( __CLASS__, 'reply_title' ), 10, 4 );
 
 		add_action( 'admin_init', array( __CLASS__, 'settings' ), 100 );
 
@@ -43,14 +43,12 @@ class PW_BBP_Reply_Notifications {
 		return $message;
 	}
 
-	function reply_title( $title, $reply_id, $topic_id ) {
+	function reply_title( $title, $reply_id, $topic_id, $user_id ) {
 
 		$custom_title = get_option( '_bbp_reply_notice_title' );
-
-		$message = $custom_title ? $custom_title : $message;
-
-		$topic_title 	= strip_tags( bbp_get_topic_title( $topic_id ) );
-		$title 		= str_replace( '{title}', $topic_title, $title );
+		$message      = $custom_title ? $custom_title : $message;
+		$topic_title  = strip_tags( bbp_get_topic_title( $topic_id ) );
+		$title 		  = str_replace( '{title}', $topic_title, $title );
 
 		return $title;
 	}
