@@ -6,7 +6,7 @@ Description: A bbPress extension to customize the email sent to forum & topic su
 Version: 1.1
 Author: Pippin Williamson
 Author URI: http://pippinsplugins.com
-Contributors: mordauk
+Contributors: mordauk, netweb
 */
 
 
