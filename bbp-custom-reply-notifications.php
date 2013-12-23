@@ -3,7 +3,7 @@
 Plugin Name: bbPress Custom Topic & Reply Notifications
 Plugin URI: http://pippinsplugins.com/bbpress-custom-reply-notifications
 Description: A bbPress extension to customize the email sent to forum & topic subscribers when a new topic or reply is posted
-Version: 1.1
+Version: 1.2
 Author: Pippin Williamson
 Author URI: http://pippinsplugins.com
 Contributors: mordauk, netweb
