@@ -88,7 +88,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		return $title;
 	}
 
-	function topic_settings() {
+	public static function topic_settings() {
 
 		add_settings_section( 'bbp_settings_topic_notices', __( 'Topic Notifications', 'bbpress' ), array( __CLASS__, 'topic_section_callback' ), 'bbpress' );
 
@@ -99,7 +99,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		register_setting( 'bbpress', '_bbp_topic_notice_title' );
 	}
 
-		function topic_section_callback() {
+	public static function topic_section_callback() {
 	?>
 
 		<p><?php _e( 'Forum settings for new topic notifications', 'bbpress' ); ?></p>
@@ -107,7 +107,7 @@ class PW_BBP_Topic_Reply_Notifications {
 	<?php
 	}
 
-	function reply_settings() {
+	public static function reply_settings() {
 
 		add_settings_section( 'bbp_settings_reply_notices', __( 'Reply Notifications', 'bbpress' ), array( __CLASS__, 'reply_section_callback' ), 'bbpress' );
 
@@ -120,7 +120,7 @@ class PW_BBP_Topic_Reply_Notifications {
 	}
 
 
-	function reply_section_callback() {
+	public static function reply_section_callback() {
 	?>
 
 		<p><?php _e( 'Forum settings for new reply notifications', 'bbpress' ); ?></p>
@@ -129,7 +129,7 @@ class PW_BBP_Topic_Reply_Notifications {
 	}
 
 
-	function topic_body_callback() {
+	public static function topic_body_callback() {
 
 		$default = '{author} wrote:
 
@@ -155,7 +155,7 @@ Login and visit the forum to unsubscribe from these emails.';
 	}
 
 
-	function topic_title_callback() {
+	public static function topic_title_callback() {
 
 		$default_title = '[' . get_option( 'blogname' ) . '] {title}';
 	?>
@@ -166,7 +166,7 @@ Login and visit the forum to unsubscribe from these emails.';
 	<?php
 	}
 
-	function reply_body_callback() {
+	public static function reply_body_callback() {
 
 		$default = '{author} wrote:
 
@@ -192,7 +192,7 @@ Login and visit the topic to unsubscribe from these emails.';
 	}
 
 
-	function reply_title_callback() {
+	public static function reply_title_callback() {
 
 		$default_title = '[' . get_option( 'blogname' ) . '] {title}';
 	?>
