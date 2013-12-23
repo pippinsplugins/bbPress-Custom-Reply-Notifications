@@ -28,7 +28,7 @@ class PW_BBP_Topic_Reply_Notifications {
 	}
 
 
-	function topic_message( $message, $topic_id, $forum_id, $user_id ) {
+	public static function topic_message( $message, $topic_id, $forum_id, $user_id ) {
 
 		$topic_content 	= strip_tags( bbp_get_topic_content( $topic_id ) );
 		$topic_url     	= bbp_get_topic_permalink( $topic_id );
@@ -46,7 +46,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		return $message;
 	}
 
-	function topic_title( $title, $topic_id, $forum_id, $user_id ) {
+	public static function topic_title( $title, $topic_id, $forum_id, $user_id ) {
 
 		$custom_title = get_option( '_bbp_topic_notice_title' );
 		$message      = $custom_title ? $custom_title : $message;
@@ -56,7 +56,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		return $title;
 	}
 
-	function reply_message( $message, $reply_id, $topic_id, $user_id ) {
+	public static function reply_message( $message, $reply_id, $topic_id, $user_id ) {
 
 		$reply_content 	= strip_tags( bbp_get_reply_content( $reply_id ) );
 		$reply_url     	= bbp_get_reply_url( $reply_id );
@@ -74,7 +74,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		return $message;
 	}
 
-	function reply_title( $title, $reply_id, $topic_id, $user_id ) {
+	public static function reply_title( $title, $reply_id, $topic_id, $user_id ) {
 
 		$custom_title = get_option( '_bbp_reply_notice_title' );
 		
