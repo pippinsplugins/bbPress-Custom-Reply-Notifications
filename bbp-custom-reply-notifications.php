@@ -90,7 +90,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		$search = '{title}';
 
 		// The topic title that will replace the title token.
-		$replace = strip_tags( bbp_get_topic_title( $topic_id ) )
+		$replace = strip_tags( bbp_get_topic_title( $topic_id ) );
 
 		// Replace the title token if it exists in the custom title.
 		$title = str_replace( $search, $replace, $subject );
