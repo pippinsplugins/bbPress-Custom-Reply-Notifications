@@ -8,6 +8,7 @@ Requires at least: 3.2
 Tested up to: 3.8
 Stable Tag: 1.3.1
 
+
 A simple bbPress extension to customize the email sent to forum & topic subscribers when a new topic or reply is posted.
 
 == Description ==
