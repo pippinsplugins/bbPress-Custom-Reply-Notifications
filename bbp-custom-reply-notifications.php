@@ -28,7 +28,7 @@ class PW_BBP_Topic_Reply_Notifications {
 	}
 
 
-	public static function topic_message( $message, $topic_id, $forum_id, $user_id ) {
+	public static function topic_message( $message, $topic_id, $forum_id ) {
 
 		$topic_content 	= strip_tags( bbp_get_topic_content( $topic_id ) );
 		$topic_url     	= bbp_get_topic_permalink( $topic_id );
@@ -46,17 +46,31 @@ class PW_BBP_Topic_Reply_Notifications {
 		return $message;
 	}
 
-	public static function topic_title( $title, $topic_id, $forum_id, $user_id ) {
+	public static function topic_title( $title, $topic_id, $forum_id ) {
 
-		$custom_title = get_option( '_bbp_topic_notice_title' );
-		$message      = $custom_title ? $custom_title : $message;
-		$topic_title  = strip_tags( bbp_get_topic_title( $topic_id ) );
-		$title 		  = str_replace( '{title}', $topic_title, $title );
+		$subject = get_option( '_bbp_topic_notice_title' );
+
+		// Because we're expecting a string from get_option(), let's use is_string()
+		// to check for a string and then ensure the string is longer than `0`. If it isn't
+		// a string, bail returning the original $title.
+		if ( ! is_string( $subject ) && strlen( $subject ) == 0 ) {
+
+			return $title;
+		}
+
+		// The topic title token to replace.
+		$search = '{title}';
+
+		// The topic title that will replace the title token.
+		$replace = strip_tags( bbp_get_topic_title( $topic_id ) );
+
+		// Replace the title token if it exists in the custom title.
+		$title = str_replace( $search, $replace, $subject );
 
 		return $title;
 	}
 
-	public static function reply_message( $message, $reply_id, $topic_id, $user_id ) {
+	public static function reply_message( $message, $reply_id, $topic_id ) {
 
 		$reply_content 	= strip_tags( bbp_get_reply_content( $reply_id ) );
 		$reply_url     	= bbp_get_reply_url( $reply_id );
@@ -74,7 +88,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		return $message;
 	}
 
-	public static function reply_title( $title, $reply_id, $topic_id, $user_id ) {
+	public static function reply_title( $title, $reply_id, $topic_id ) {
 
 		$subject = get_option( '_bbp_reply_notice_title' );
 
