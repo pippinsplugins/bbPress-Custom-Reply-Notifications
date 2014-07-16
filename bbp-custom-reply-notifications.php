@@ -33,6 +33,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		$topic_content 	= strip_tags( bbp_get_topic_content( $topic_id ) );
 		$topic_url     	= bbp_get_topic_permalink( $topic_id );
 		$topic_author	= bbp_get_topic_author_display_name( $topic_id );
+		$forum_name     = bp_get_forum_name( $forum_id );
 
 		$custom_message = get_option( '_bbp_topic_notice_body' );
 
@@ -41,6 +42,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		$message = str_replace( '{author}',  $topic_author,  $message );
 		$message = str_replace( '{content}', $topic_content, $message );
 		$message = str_replace( '{url}',     $topic_url,     $message );
+		$message = str_replace( '{forum_name}', $forum_name, $message );
 
 
 		return $message;
@@ -163,7 +165,7 @@ Post Link: {url}
 
 -----------
 
-You are receiving this email because you subscribed to a forum.
+You are receiving this email because you subscribed to the {forum_name} forum.
 
 Login and visit the forum to unsubscribe from these emails.';
 
