@@ -33,7 +33,7 @@ class PW_BBP_Topic_Reply_Notifications {
 		$topic_content 	= strip_tags( bbp_get_topic_content( $topic_id ) );
 		$topic_url     	= bbp_get_topic_permalink( $topic_id );
 		$topic_author	= bbp_get_topic_author_display_name( $topic_id );
-		$forum_name     = bp_get_forum_name( $forum_id );
+		$forum_name     = bbp_get_forum_title( $forum_id );
 
 		$custom_message = get_option( '_bbp_topic_notice_body' );
 
