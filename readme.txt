@@ -5,8 +5,8 @@ Contributors: mordauk, netweb
 Donate link: http://pippinsplugins.com/support-the-site
 Tags: bbPress, replies, Forums, mordauk, Pippin Williamson, pippinsplugins
 Requires at least: 3.2
-Tested up to: 3.8
-Stable Tag: 1.3.1
+Tested up to: 4.0
+Stable Tag: 1.4
 
 
 A simple bbPress extension to customize the email sent to forum & topic subscribers when a new topic or reply is posted.
@@ -23,6 +23,10 @@ Once activated, you will have two new options in Settings > Forums that will let
 2. Go to Settings > Forums and custom your email message and subject
 
 == Changelog ==
+
+= 1.4 =
+
+* Added support for a template tag that shows the forum name, {forum_name}, props @arippberger
 
 = 1.3.1 =
 
