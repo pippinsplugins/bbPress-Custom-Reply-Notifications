@@ -5,7 +5,7 @@ Contributors: mordauk, netweb
 Donate link: http://pippinsplugins.com/support-the-site
 Tags: bbPress, replies, Forums, mordauk, Pippin Williamson, pippinsplugins
 Requires at least: 3.2
-Tested up to: 4.0
+Tested up to: 4.1
 Stable Tag: 1.4
 
 
